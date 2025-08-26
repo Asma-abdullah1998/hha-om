@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Offers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfdfd;
+      color: #333;
+      padding-top: 65px; /* same as header height */
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Container */
+    .offer-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #fafafa, #f1f1f1);
+    }
+
+    /* Card */
+    .offer-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      max-width: 1100px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transform: translateY(30px);
+      opacity: 0;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    /* Text side */
+    .offer-text {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: slideInLeft 1.2s ease forwards;
+    }
+
+    .offer-text h2 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+
+.offer-text h3 {
+  position: relative;
+  display: inline-block;
+}
+
+.offer-text h3::after {
+  content: '';
+  position: absolute;
+  left: 0; /* default for LTR */
+  bottom: -8px;
+  width: 50px;
+  height: 3px;
+  background: #c89b3c;
+  border-radius: 2px;
+}
+
+/* RTL override */
+html:dir(rtl) .offer-text h3::after {
+  left: auto;
+  right: 0;
+}
+
+    .offer-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+   
+.offer-text button {
+  padding: 0.9rem 2rem;
+  background: #0077cc; /* Bright blue background */
+  border: none;
+  border-radius: 30px;
+  color: #ffffff; /* White text */
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  box-shadow: 0 5px 15px rgba(0, 119, 204, 0.3);
+  border: 2px solid #0077cc; /* Optional: adds a clean border */
+}
+
+.offer-text button:hover {
+  background: #005fa3; /* Darker blue on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 119, 204, 0.5);
+}
+    /* Image side */
+    .offer-image {
+      position: relative;
+      overflow: hidden;
+      animation: slideInRight 1.2s ease forwards;
+    }
+
+    .offer-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .offer-card:hover .offer-image img {
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      0% {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      0% {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      0% {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .offer-card {
+        grid-template-columns: 1fr;
+      }
+      .offer-image {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header will be loaded via JS -->
+  <div id="header"></div>
+
+  <!-- Offer Section -->
+  <section class="offer-section">
+    <div class="offer-card">
+      <div class="offer-text">
+        <h2 data-translate="offersTitle">OFFERS</h2>
+        <h3 data-translate="offersSubtitle">Our Special Offer</h3>
+        <p data-translate="offersText">Book two nights and enjoy the third night absolutely free. Experience luxury and comfort with us at Horizon Hotel Apartments.</p>
+        <button onclick="location.href='rooms.html#book-now'" data-translate="heroButton">Book Now</button>
+      </div>
+      <div class="offer-image">
+        <img src="./Images/AboutCover.webp" alt="Hotel Room">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer will be loaded via JS -->
+  <div id="footer"></div>
+
+  <!-- Language script -->
+  <script src="language.js"></script>
+
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+        // Load footer
+        fetch("footer.html")
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById("footer").innerHTML = data;
+          });
+
+        // Reattach menu toggle functionality
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("nav-links");
+        if (toggle) {
+          toggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+          });
+        }
+      });
+  </script>
+
+</body>
+</html>

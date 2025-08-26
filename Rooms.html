@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-translate="navRooms">Rooms - Horizon Hotel Apartments</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      margin: 0;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-top: 65px; /* same as header height */
+    }
+
+    h2 {
+      font-weight: 700;
+      color: #222;
+    }
+
+    p {
+      color: #555;
+    }
+
+    /* Smooth fade-in animation (kept for room sections) */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Room Section */
+    .room-section {
+      text-align: center;
+      padding: 40px 10px;
+      position: relative;
+      background: #fff;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+    }
+
+    .room-section:hover {
+      transform: translateY(-4px);
+    }
+
+    .room-section h2 {
+      font-size: 20px;
+      margin-bottom: 5px;
+      letter-spacing: 1.5px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .room-section h2::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 60%;
+      margin: 5px auto 0;
+      background: linear-gradient(90deg, #0056b3, #00aaff);
+      border-radius: 2px;
+      animation: expand 1.5s ease forwards;
+    }
+    @keyframes expand {
+      from { width: 0; }
+      to { width: 60%; }
+    }
+
+    /* Carousel */
+    .carousel {
+      position: relative;
+      width: 85%;
+      max-width: 475px;
+      margin: 15px auto;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.8s cubic-bezier(.86,0,.07,1);
+    }
+
+    .carousel img {
+      width: 100%;
+      flex-shrink: 0;
+      border-radius: 8px;
+      transform: scale(1.05);
+      transition: transform 0.8s ease;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.12);
+    }
+
+    /* Carousel Dots */
+    .dots {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .dot {
+      height: 6px;
+      width: 6px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: all 0.4s;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: linear-gradient(135deg, #0056b3, #00aaff);
+      transform: scale(1.3);
+      box-shadow: 0 0 6px rgba(0,86,179,0.6);
+    }
+/* Book Now Section - White Background, Blue Accents */
+.book-now {
+  text-align: center;
+  padding: 20px 15px;
+  background: #ffffff;
+  color: #333333;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 340px; /* Compact width */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.book-now h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #1565c0; /* Deep blue */
+  position: relative;
+  display: inline-block;
+}
+
+.book-now h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, #2196f3, #90caf9); /* Blue to light blue */
+  border-radius: 2px;
+}
+
+.book-now p {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.book-now form {
+  max-width: 260px;
+  margin: 10px auto 0;
+}
+
+.form-group {
+  position: relative;
+  margin: 10px 0;
+}
+
+.book-now input {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.book-now input::placeholder {
+  color: #999;
+}
+
+.book-now input:focus {
+  outline: none;
+  border-color: #2196f3;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.form-group:focus-within .input-icon {
+  color: #2196f3;
+}
+
+.dates-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.book-now button {
+  margin-top: 12px;
+  background: linear-gradient(135deg, #2196f3, #1565c0);
+  color: white;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(33, 150, 243, 0.3);
+  width: 100%;
+}
+
+.book-now button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(33, 150, 243, 0.4);
+}
+
+.book-now button:active {
+  transform: translateY(0);
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  background: #1565c0;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(21, 101, 192, 0.3);
+}
+
+.whatsapp-btn:hover {
+  background: #0d47a1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(13, 71, 161, 0.4);
+}
+
+.email-link {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.email-link:hover {
+  color: #0b5cab;
+  text-decoration: underline;
+}
+
+.recaptcha-notice {
+  font-size: 9px;
+  margin-top: 8px;
+  color: #888;
+  line-height: 1.3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .book-now {
+    max-width: 300px;
+    padding: 18px 12px;
+  }
+  .book-now h2 {
+    font-size: 18px;
+  }
+  .book-now p,
+  .email-link,
+  .recaptcha-notice {
+    font-size: 11px;
+  }
+  .book-now input,
+  .book-now button {
+    font-size: 13px;
+  }
+  .whatsapp-btn {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
+}
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <!-- Room Sections -->
+  <section class="room-section fade-in">
+    <h2 data-translate="doubleRoomTitle">DOUBLE ROOM</h2>
+    <p data-translate="doubleRoomDesc">- Includes a double bed and a bathroom</p>
+    <p><strong data-translate="doubleRoomPrice">15 riyals</strong></p>
+    <div class="carousel" data-carousel>
+      <div class="carousel-track">
+        <img src="Images/DoubleRoomFirst.webp" alt="Double Room">
+        <img src="Images/DoubleRoomSecond.webp" alt="Double Room">
+        <img src="Images/DoubleRoomThird.webp" alt="Double Room">
+        <img src="Images/DoubleRoomFourth.webp" alt="Double Room">
+      </div>
+    </div>
+    <div class="dots"></div>
+  </section>
+
+  <section class="room-section fade-in">
+    <h2 data-translate="twinRoomTitle">TWIN ROOM</h2>
+    <p data-translate="twinRoomDesc">- Contains two single beds and a bathroom</p>
+    <p><strong data-translate="twinRoomPrice">15 riyals</strong></p>
+    <div class="carousel" data-carousel>
+      <div class="carousel-track">
+        <img src="Images/TwinRoomFirst.webp" alt="Twin Room">
+        <img src="Images/TwinRoomSecond.webp" alt="Twin Room">
+        <img src="Images/TwinRoomThird.webp" alt="Twin Room">
+      </div>
+    </div>
+    <div class="dots"></div>
+  </section>
+
+  <section class="room-section fade-in">
+    <h2 data-translate="doubleApartmentTitle">DOUBLE-BEDROOM APARTMENT</h2>
+    <p data-translate="doubleApartmentDesc">- Contains a separate room with a double bed, a bathroom, a living room, and a fully equipped kitchen.</p>
+    <p><strong data-translate="doubleApartmentPrice">20 riyals</strong></p>
+    <div class="carousel" data-carousel>
+      <div class="carousel-track">
+        <img src="Images/DoubleRoomApartmentFirst.webp" alt="Double-Bedroom Apartment">
+        <img src="Images/DoubleRoomApartmentSecond.webp" alt="Double-Bedroom Apartment">
+        <img src="Images/DoubleRoomApartmentThird.webp" alt="Double-Bedroom Apartment">
+        <img src="Images/DoubleRoomApartmentFourth.webp" alt="Double-Bedroom Apartment">
+      </div>
+    </div>
+    <div class="dots"></div>
+  </section>
+
+  <section class="room-section fade-in">
+    <h2 data-translate="twoBedroomTitle">TWO BEDROOM APARTMENT</h2>
+    <p data-translate="twoBedroomDesc">- Ideal for a family, it includes two bedrooms, two bathrooms, a living room, and a fully equipped kitchen.</p>
+    <p><strong data-translate="twoBedroomPrice">20 riyals</strong></p>
+    <div class="carousel" data-carousel>
+      <div class="carousel-track">
+        <img src="Images/TwoBedroomApartmentFirst.webp" alt="Apartment">
+        <img src="Images/TwoBedroomApartmentSecond.webp" alt="Apartment">
+        <img src="Images/TwoBedroomApartmentThird.webp" alt="Apartment">
+        <img src="Images/TwoBedroomApartmentFourth.webp" alt="Apartment">
+        <img src="Images/TwoBedroomApartmentFifth.webp" alt="Apartment">
+        <img src="Images/TwoBedroomApartmentSixth.webp" alt="Apartment">
+      </div>
+    </div>
+    <div class="dots"></div>
+  </section>
+
+  <section class="room-section fade-in">
+    <h2 data-translate="suiteTitle">SUITE</h2>
+    <p data-translate="suiteDesc">- Fully updated with a modern design, it includes a bedroom, a private bathroom, a living room, a kitchen, and an additional bathroom.</p>
+    <p><strong data-translate="suitePrice">35 riyals</strong></p>
+    <div class="carousel" data-carousel>
+      <div class="carousel-track">
+        <img src="Images/SuiteFirst.webp" alt="Suite">
+        <img src="Images/SuiteSecond.webp" alt="Suite">
+        <img src="Images/SuiteThird.webp" alt="Suite">
+        <img src="Images/SuiteFourth.webp" alt="Suite">
+        <img src="Images/SuiteFifth.webp" alt="Suite">
+        <img src="Images/SuiteSixth.webp" alt="Suite">
+        <img src="Images/SuiteSeventh.webp" alt="Suite">
+      </div>
+    </div>
+    <div class="dots"></div>
+  </section>
+<section class="book-now" id="book-now">
+  <h2 data-translate="bookingTitle">BOOK NOW</h2>
+  <p data-translate="bookingText">Book your room now and enjoy a safe and comfortable stay.</p>
+  <form id="booking-form">
+    <div class="form-group">
+      <span class="input-icon">👤</span>
+      <input type="text" data-translate="bookingName" placeholder="Name" required>
+    </div>
+    <div class="form-group">
+      <span class="input-icon">✉️</span>
+      <input type="email" data-translate="bookingEmail" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+      <span class="input-icon">📱</span>
+      <input type="tel" data-translate="bookingPhone" placeholder="Phone Number" required>
+    </div>
+    <div class="dates-container">
+      <div class="form-group">
+        <span class="input-icon">📅</span>
+        <input type="date" required>
+      </div>
+      <div class="form-group">
+        <span class="input-icon">📅</span>
+        <input type="date" required>
+      </div>
+    </div>
+    <button type="submit" data-translate="bookingButton">BOOK NOW</button>
+  </form>
+
+  <!-- Success container -->
+  <div id="success-container"></div>
+
+  <p class="recaptcha-notice" data-translate="bookingRecaptcha">
+    This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+  </p>
+  <a href="https://wa.me/96897333972" class="whatsapp-btn" data-translate="bookingWhatsapp">💬 Message us on WhatsApp</a>
+  <p><a href="mailto:info@hha-om.com" class="email-link">info@hha-om.com</a></p>
+</section>
+  <div id="footer"></div>
+
+  <script src="language.js"></script>
+ <script>
+    // Carousel Script with RTL fix
+    document.querySelectorAll("[data-carousel]").forEach(carousel => {
+      const track = carousel.querySelector(".carousel-track");
+      const images = track.querySelectorAll("img");
+      const dotsContainer = carousel.nextElementSibling;
+      let index = 0;
+
+      images.forEach((_, i) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+          index = i;
+          updateCarousel();
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = dotsContainer.querySelectorAll(".dot");
+
+      function updateCarousel() {
+        const isRTL = document.documentElement.dir === "rtl";
+        // Flip direction if RTL
+        track.style.transform = isRTL
+          ? `translateX(${index * 100}%)`
+          : `translateX(-${index * 100}%)`;
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[index].classList.add("active");
+      }
+
+      function autoSlide() {
+        index = (index + 1) % images.length;
+        updateCarousel();
+      }
+
+      setInterval(autoSlide, 4000);
+    });
+
+    // Fade-in on scroll
+    const sections = document.querySelectorAll(".fade-in");
+    const options = { threshold: 0.2 };
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationDelay = "0.2s";
+          entry.target.classList.add("animate");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, options);
+    sections.forEach(sec => observer.observe(sec));
+
+    // Load header & footer
+    fetch("header.html").then(res => res.text()).then(data => document.getElementById("header").innerHTML = data);
+    fetch("footer.html").then(res => res.text()).then(data => document.getElementById("footer").innerHTML = data);
+
+    // Booking form validation + success
+    const bookingForm = document.getElementById("booking-form");
+    const successContainer = document.getElementById("success-container");
+
+    bookingForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = bookingForm.querySelector("input[type='text']").value.trim();
+      const email = bookingForm.querySelector("input[type='email']").value.trim();
+      const phone = bookingForm.querySelector("input[type='tel']").value.trim();
+      const dates = bookingForm.querySelectorAll("input[type='date']");
+      const checkIn = dates[0].value;
+      const checkOut = dates[1].value;
+
+      if (!name || !email || !phone || !checkIn || !checkOut) {
+        alert("⚠️ Please fill in all fields.");
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert("⚠️ Please enter a valid email.");
+        return;
+      }
+      if (!/^[0-9]{8,15}$/.test(phone)) {
+        alert("⚠️ Please enter a valid phone number (digits only).");
+        return;
+      }
+      if (new Date(checkIn) >= new Date(checkOut)) {
+        alert("⚠️ Check-out date must be after check-in date.");
+        return;
+      }
+
+      // Load success.html dynamically
+      fetch("success.html")
+        .then(res => res.text())
+        .then(data => {
+          successContainer.innerHTML = data;
+          bookingForm.style.display = "none";
+        });
+    });
+  </script>
+</body>
+</html>

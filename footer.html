@@ -1,0 +1,74 @@
+<style>
+  footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    position: relative;
+  }
+
+  footer a {
+    color: #00bfff;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-bottom {
+    margin-top: 10px;
+    font-size: 13px;
+    opacity: 0.8;
+  }
+
+  /* Cookie Banner */
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #222;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    z-index: 9999;
+  }
+
+  .cookie-banner button {
+    background: #007bff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .cookie-banner button:hover {
+    background: #0056b3;
+  }
+</style>
+
+<footer>
+  <p data-translate="footerCopyright">Copyright © 2025 Horizon Hotel Apartments - All Rights Reserved.</p>
+
+</footer>
+
+<!-- Cookie Banner -->
+  <script src="language.js"></script>
+
+<script>
+
+  // Hide banner if already accepted
+  window.onload = () => {
+    if (localStorage.getItem("cookiesAccepted")) {
+      document.getElementById("cookie-banner").style.display = "none";
+    }
+  }
+</script>

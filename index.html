@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizon Hotel Apartments</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      font-family:'Open Sans',sans-serif;
+      color:#333;
+      line-height:1.7;
+      background:#fff;
+      scroll-behavior:smooth;
+      padding-top: 65px; /* same as header height */
+    }
+    h1,h2,h3,h4 { font-family:'Montserrat',sans-serif; color:white }
+
+    /* Hero */
+    .hero {
+      position:relative;
+      background:url("./Images/HeroImage.webp") center/cover no-repeat fixed;
+      height:90vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      padding:0 20px;
+      overflow:hidden;
+    }
+    .hero::after {
+      content:"";
+      position:absolute; inset:0;
+      background:rgba(0,0,0,0.55);
+    }
+    .hero-content {
+      position:relative; z-index:2;
+      animation: fadeUp 1.2s ease forwards;
+      opacity:0;
+    }
+    .hero h1 {
+      font-size:46px;
+      font-weight:700;
+      margin-bottom:12px;
+      letter-spacing:1px;
+    }
+    .hero p {
+      font-size:20px;
+      margin-bottom:25px;
+      font-weight:300;
+    }
+    .hero a.hero-button {
+      padding: 12px 32px;
+      background: transparent;
+      border: 2px solid #fff;
+      border-radius: 30px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .hero a.hero-button:hover {
+      background: #f4c542;
+      color: #111;
+      border-color: #f4c542;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    section { padding:80px 20px }
+    .container { max-width:1100px; margin:0 auto }
+
+    /* About Us */
+    .about {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+    .about h2 {
+      font-size:22px;
+      font-weight:700;
+      margin-bottom:20px;
+      letter-spacing:.5px;
+      animation: fadeUp 1.2s ease forwards;
+      opacity:0;
+    }
+    .about p {
+      font-size:15px;
+      margin-bottom:15px;
+      color:#444;
+      animation: fadeUp 1.2s ease forwards;
+      opacity:0;
+    }
+    .about strong { color:#000 }
+    .about img {
+      width:100%;
+      border-radius:12px;
+      object-fit:cover;
+      animation: fadeIn 1.5s ease forwards;
+      opacity:0;
+    }
+
+    /* Features */
+    .features h2 {
+      text-align:center;
+      font-size:20px;
+      font-weight:700;
+      margin-bottom:50px;
+      letter-spacing:.5px;
+      animation: fadeUp 1s ease forwards;
+      opacity:0;
+    }
+    .feature-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+      text-align:center;
+    }
+    .feature-grid div {
+      transform:translateY(20px);
+      opacity:0;
+      animation: fadeUp 1.2s ease forwards;
+    }
+    .feature-grid img {
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      border-radius:10px;
+      margin-bottom:12px;
+      box-shadow:0 6px 14px rgba(0,0,0,0.1);
+      transition:.3s;
+    }
+    .feature-grid img:hover {
+      transform:scale(1.05);
+    }
+    .feature-grid h3 {
+      font-size:15px;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .feature-grid p {
+      font-size:13.5px;
+      color:#555;
+      line-height:1.6;
+    }
+
+    /* Contact */
+    .contact {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:start;
+    }
+    .contact h2 {
+      font-size:20px;
+      font-weight:700;
+      margin-bottom:15px;
+      animation: fadeUp 1s ease forwards;
+      opacity:0;
+    }
+    .contact p {
+      font-size:14.5px;
+      margin-bottom:8px;
+      animation: fadeUp 1.2s ease forwards;
+      opacity:0;
+    }
+    .contact button {
+      margin-top:20px;
+      padding:12px 24px;
+      background:transparent;
+      border:2px solid #111;
+      border-radius:25px;
+      cursor:pointer;
+      font-size:13.5px;
+      font-weight:600;
+      transition:.3s;
+    }
+    .contact button:hover {
+      background:#111;
+      color:#fff;
+      transform:translateY(-2px);
+    }
+    .map iframe {
+      width:100%;
+      height:320px;
+      border:0;
+      border-radius:10px;
+      animation: fadeIn 1.5s ease forwards;
+      opacity:0;
+    }
+
+    /* Contact form hidden by default */
+    form {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0.6s ease;
+    }
+    form.active {
+      max-height: 600px;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    form input, form textarea {
+      width:100%;
+      padding:10px;
+      margin-bottom:12px;
+      border:1px solid #ccc;
+      border-radius:6px;
+      font-size:14px;
+    }
+    form textarea { resize:vertical; min-height:100px; }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity:0; }
+      to { opacity:1; }
+    }
+
+    /* Responsive */
+    @media(max-width:900px) {
+      .about, .contact { grid-template-columns:1fr; }
+      .feature-grid { grid-template-columns:1fr; }
+      .hero h1 { font-size:32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <div id="header"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 data-translate="heroTitle">Stay with us in comfort</h1>
+      <p data-translate="heroSubtitle">In The Heart Of Muscat</p>
+      <a href="rooms.html#book-now" class="hero-button" data-translate="heroButton">Book Now</a>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section>
+    <div class="container about">
+      <div>
+        <h2 data-translate="aboutTitle">About Us</h2>
+        <p data-translate="aboutText1"><strong>Horizon Hotel Apartments</strong> is a distinguished <strong>3-star</strong>, offering a <strong>luxurious experience</strong> in perfect harmony with standards of comfort and modern amenities. Nestled in the vibrant Al Khoud, directly Near Sultan Qaboos Mosque. The hotel features contemporary décor with thoughtful touches designed to enhance your stay. Each room is meticulously crafted to provide a serene and stylish retreat, complete with high-quality furnishings and modern conveniences.</p>
+        <p data-translate="aboutText2">At Horizon Hotel Apartments, you'll find a team of dedicated professionals committed to delivering exceptional service and ensuring your stay is both <strong>comfortable and memorable</strong>. From the moment you arrive, our staff will be attentive to your needs, offering personalized recommendations and assistance to make your visit to Muscat truly special. Come and experience the perfect blend of luxury and convenience at Horizon Hotel Apartments, where every detail is designed with your comfort in mind.</p>
+      </div>
+      <div>
+        <img src="./Images/AboutCover.webp" alt="Hotel Room">
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <h2 data-translate="featuresTitle">About Horizon Hotel Apartments</h2>
+      <div class="feature-grid">
+        <div>
+          <img src="./Images/AboutHospitality.webp" alt="Hospitality">
+          <h3 data-translate="feature1Title">Hospitality</h3>
+          <p data-translate="feature1Text">Where comfort meets elegance in a warm atmosphere that reflects Arab hospitality. We offer you a unique accommodation experience that combines superior service, an ideal location, and comprehensive amenities to ensure an unforgettable stay.</p>
+        </div>
+        <div>
+          <img src="./Images/AboutFacilities.webp" alt="Facilities">
+          <h3 data-translate="feature2Title">Facilities</h3>
+          <p data-translate="feature2Text">Our hotel is not just a place to stay, but a complete hospitality experience. Enjoy a selection of carefully designed rooms to suit different tastes and needs, with facilities that suit you.</p>
+        </div>
+        <div>
+          <img src="./Images/About24Hour.webp" alt="24-hour Service">
+          <h3 data-translate="feature3Title">24-hour service</h3>
+          <p data-translate="feature3Text">We strive to serve you throughout your stay with us. Therefore, we provide <strong>24-hour service</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container contact">
+      <div>
+        <h2 style="color: black;" data-translate="contactTitle">Drop us a line</h2>
+        <div id="contact-details">
+          <p data-translate="contactText1">We are pleased to have you visit us.</p>
+          <p data-translate="contactText2"><strong>Location:</strong> Al Khoud, Muscat - Sultanate of Oman</p>
+          <p data-translate="contactText3"><strong>WhatsApp:</strong> +968 97333972</p>
+          <p data-translate="contactText4"><strong>Tel:</strong> 24533273</p>
+          <p data-translate="contactText5"><strong>Email:</strong> info@hha-om.com</p>
+          <p data-translate="contactText6"><strong>Plus Code:</strong> J5FX+55 السيب‎، Oman</p>
+          <button id="drop-line" data-translate="contactButton">Drop us a line!</button>
+        </div>
+
+        <!-- Contact Form -->
+        <form id="contact-form">
+          <input type="text" data-translate="contactFormName" placeholder="Name" required>
+          <input type="email" data-translate="contactFormEmail" placeholder="Email*" required>
+          <textarea data-translate="contactFormMessage" placeholder="Message"></textarea>
+          <button type="submit" data-translate="contactFormSend">Send</button>
+          <button type="reset" data-translate="contactFormCancel">Cancel</button>
+        </form>
+
+        <!-- Placeholder for success message -->
+        <div id="success-container"></div>
+      </div>
+
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.2127767051974!2d58.1973!3d23.5861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e90d5b3c1a1f1d3%3A0x4f9f2cfa5b47c2d9!2sMuscat!5e0!3m2!1sen!2som!4v161234567890!5m2!1sen!2som" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script src="language.js"></script>
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+        // Load footer
+        fetch("footer.html")
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById("footer").innerHTML = data;
+          });
+
+        // Reattach menu toggle functionality
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("nav-links");
+        if (toggle) {
+          toggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+          });
+        }
+      });
+
+    // Contact form toggle
+    const dropBtn = document.getElementById("drop-line");
+    const contactForm = document.getElementById("contact-form");
+    const contactDetails = document.getElementById("contact-details");
+    const cancelBtn = contactForm.querySelector("button[type='reset']");
+    const successContainer = document.getElementById("success-container");
+
+    dropBtn.addEventListener("click", () => {
+      contactForm.classList.add("active");
+      contactDetails.style.display = "none";
+      successContainer.innerHTML = ""; // clear any previous success message
+    });
+
+    // Cancel button
+    cancelBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      contactForm.classList.remove("active");
+      contactDetails.style.display = "block";
+      successContainer.innerHTML = ""; // hide success message
+    });
+
+    // Submit button
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      contactForm.classList.remove("active");
+
+      // Load success.html dynamically
+      fetch("success.html")
+        .then(res => res.text())
+        .then(data => {
+          successContainer.innerHTML = data;
+        });
+    });
+  </script>
+
+</body>
+</html>

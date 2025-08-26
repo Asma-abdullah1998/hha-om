@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Blue Header</title>
+  <style>
+    /* === HEADER STYLES === */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #1565c0; /* Deep blue background */
+      color: white; /* White text */
+      height: 65px;
+      padding: 0 20px;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(8px); /* Frosted glass effect (works with transparency) */
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white; /* White text */
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #e3f2fd; /* Light blue-white on hover */
+      transform: translateY(-1px);
+    }
+
+    /* === LANGUAGE SWITCHER (White/Glass on Blue) === */
+    .language-switcher {
+      position: absolute;
+      right: 70px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .language-switcher button {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(6px);
+      transition: all 0.35s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .language-switcher button:hover,
+    .language-switcher button.active {
+      background: linear-gradient(135deg, #2196f3, #1976d2);
+      color: white;
+      border-color: #0d47a1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+    }
+
+    /* === HAMBURGER MENU (White bars) === */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1100;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: white; /* White hamburger lines */
+      margin: 4px 0;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* === MOBILE MENU === */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        right: 20px;
+        background: #1565c0; /* Blue background */
+        padding: 12px 16px;
+        border-radius: 14px;
+        min-width: 130px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        animation: slideDown 0.35s ease forwards;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        padding: 10px 0;
+        text-align: center;
+        font-size: 14px;
+        color: white; /* White links */
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: #e3f2fd;
+        text-decoration: underline;
+      }
+
+      .language-switcher {
+        position: static;
+        justify-content: center;
+        margin-top: 12px;
+      }
+
+      .language-switcher button {
+        padding: 6px 12px;
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .language-switcher button:hover,
+      .language-switcher button.active {
+        background: linear-gradient(135deg, #2196f3, #1976d2);
+        color: white;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="ar">AR</button>
+    </div>
+
+    <!-- Hamburger Menu -->
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav id="nav-links">
+      <a href="index.html" data-translate="navHome">Home</a>
+      <a href="rooms.html" data-translate="navRooms">Room</a>
+      <a href="Media Center.html" data-translate="navMedia">Media Center</a>
+      <a href="offers.html" data-translate="navOffers">Offers</a>
+      <a href="contact.html" data-translate="navContact">Contact Us</a>
+    </nav>
+  </header>
+
+  <script>
+    // Toggle mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    
+    menuToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    const navItems = document.querySelectorAll('nav a');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+    
+    // Language switcher functionality
+    const langButtons = document.querySelectorAll('.language-switcher button');
+    langButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        langButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        console.log('Switching to language: ' + button.dataset.lang);
+      });
+    });
+  </script>
+</body>
+</html>
