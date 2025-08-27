@@ -296,6 +296,11 @@
   line-height: 1.3;
 }
 
+/* NEW: Specific styles for date inputs */
+.book-now input[type="date"] {
+  min-height: 40px; /* Ensure consistent height */
+}
+
 /* Responsive Adjustments */
 @media (max-width: 480px) {
   .book-now {
@@ -318,7 +323,50 @@
     font-size: 12px;
     padding: 7px 12px;
   }
+  
+  /* NEW: Improved date input responsiveness */
+  .book-now input[type="date"] {
+    padding-left: 35px; /* Slightly reduce padding on mobile */
+    font-size: 12px; /* Smaller font for date inputs */
+  }
+  
+  .book-now .input-icon {
+    left: 10px; /* Adjust icon position */
+    font-size: 14px; /* Slightly smaller icons */
+  }
+  
+  .dates-container {
+    gap: 8px; /* Reduce gap between date inputs */
+  }
+}
 
+/* NEW: Additional adjustments for very small screens */
+@media (max-width: 360px) {
+  .book-now {
+    max-width: 280px;
+    padding: 15px 10px;
+  }
+  
+  .book-now input[type="date"] {
+    padding-left: 32px;
+    font-size: 11px;
+  }
+  
+  .book-now .input-icon {
+    left: 8px;
+    font-size: 13px;
+  }
+  
+  .book-now form {
+    max-width: 240px;
+  }
+}
+
+/* NEW: Fix for iOS Safari date input issues */
+@supports (-webkit-touch-callout: none) {
+  .book-now input[type="date"] {
+    min-height: 44px; /* Better touch target on iOS */
+  }
 }
   </style>
 </head>
