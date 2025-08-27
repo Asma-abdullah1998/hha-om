@@ -2,7 +2,7 @@
 <html dir="ltr" lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-translate="navRooms">Rooms - Horizon Hotel Apartments</title>
   <link rel="stylesheet" href="style.css">
   <style>
@@ -15,7 +15,6 @@
       line-height: 1.6;
       overflow-x: hidden;
       padding-top: 65px; /* same as header height */
-      -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
     }
 
     h2 {
@@ -102,9 +101,6 @@
       border-radius: 8px;
       transform: scale(1.05);
       transition: transform 0.8s ease;
-      /* Ensure images display correctly on iOS */
-      height: auto;
-      -webkit-backface-visibility: hidden;
     }
 
     .carousel img:hover {
@@ -134,286 +130,244 @@
       transform: scale(1.3);
       box-shadow: 0 0 6px rgba(0,86,179,0.6);
     }
-    
-    /* Book Now Section - White Background, Blue Accents */
-    .book-now {
-      text-align: center;
-      padding: 20px 15px;
-      background: #ffffff;
-      color: #333333;
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      margin: 20px auto;
-      max-width: 340px; /* Compact width */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+/* Book Now Section - White Background, Blue Accents */
+.book-now {
+  text-align: center;
+  padding: 20px 15px;
+  background: #ffffff;
+  color: #333333;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 340px; /* Compact width */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    .book-now h2 {
-      font-size: 20px;
-      margin-bottom: 6px;
-      letter-spacing: 1px;
-      font-weight: 700;
-      color: #1565c0; /* Deep blue */
-      position: relative;
-      display: inline-block;
-    }
+.book-now h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #1565c0; /* Deep blue */
+  position: relative;
+  display: inline-block;
+}
 
-    .book-now h2::after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50%;
-      height: 2px;
-      background: linear-gradient(90deg, #2196f3, #90caf9); /* Blue to light blue */
-      border-radius: 2px;
-    }
+.book-now h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, #2196f3, #90caf9); /* Blue to light blue */
+  border-radius: 2px;
+}
 
-    .book-now p {
-      font-size: 12px;
-      margin-bottom: 10px;
-      color: #666;
-      line-height: 1.4;
-    }
+.book-now p {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #666;
+  line-height: 1.4;
+}
 
-    .book-now form {
-      max-width: 260px;
-      margin: 10px auto 0;
-    }
+.book-now form {
+  max-width: 260px;
+  margin: 10px auto 0;
+}
 
-    .form-group {
-      position: relative;
-      margin: 10px 0;
-    }
+.form-group {
+  position: relative;
+  margin: 10px 0;
+}
 
-    .book-now input {
-      width: 100%;
-      padding: 10px 12px 10px 40px;
-      background: #f8f9fa;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      color: #333;
-      font-size: 14px;
-      transition: all 0.3s ease;
-      box-sizing: border-box;
-      -webkit-appearance: none; /* crucial for iOS styling */
-      appearance: none;
-    }
+.book-now input {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
 
-    .book-now input::placeholder {
-      color: #999;
-    }
+.book-now input::placeholder {
+  color: #999;
+}
 
-    .book-now input:focus {
-      outline: none;
-      border-color: #2196f3;
-      background: #ffffff;
-      box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
-    }
+.book-now input:focus {
+  outline: none;
+  border-color: #2196f3;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
 
-    .input-icon {
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #555;
-      font-size: 16px;
-      pointer-events: none;
-    }
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  font-size: 16px;
+  pointer-events: none;
+}
 
-    .form-group:focus-within .input-icon {
-      color: #2196f3;
-    }
+.form-group:focus-within .input-icon {
+  color: #2196f3;
+}
 
-    .dates-container {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+.dates-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-    .book-now button {
-      margin-top: 12px;
-      background: linear-gradient(135deg, #2196f3, #1565c0);
-      color: white;
-      padding: 10px 0;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(33, 150, 243, 0.3);
-      width: 100%;
-      -webkit-appearance: none; /* Remove default iOS styling */
-    }
+.book-now button {
+  margin-top: 12px;
+  background: linear-gradient(135deg, #2196f3, #1565c0);
+  color: white;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(33, 150, 243, 0.3);
+  width: 100%;
+}
 
-    .book-now button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 14px rgba(33, 150, 243, 0.4);
-    }
+.book-now button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(33, 150, 243, 0.4);
+}
 
-    .book-now button:active {
-      transform: translateY(0);
-    }
+.book-now button:active {
+  transform: translateY(0);
+}
 
-    .whatsapp-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 12px;
-      background: #1565c0;
-      color: white;
-      padding: 8px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 13px;
-      transition: all 0.3s ease;
-      box-shadow: 0 3px 8px rgba(21, 101, 192, 0.3);
-    }
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  background: #1565c0;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(21, 101, 192, 0.3);
+}
 
-    .whatsapp-btn:hover {
-      background: #0d47a1;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(13, 71, 161, 0.4);
-    }
+.whatsapp-btn:hover {
+  background: #0d47a1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(13, 71, 161, 0.4);
+}
 
-    .email-link {
-      color: #1976d2;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 12px;
-      transition: all 0.3s ease;
-      display: inline-block;
-      margin-top: 8px;
-    }
+.email-link {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 8px;
+}
 
-    .email-link:hover {
-      color: #0b5cab;
-      text-decoration: underline;
-    }
+.email-link:hover {
+  color: #0b5cab;
+  text-decoration: underline;
+}
 
-    .recaptcha-notice {
-      font-size: 9px;
-      margin-top: 8px;
-      color: #888;
-      line-height: 1.3;
-    }
+.recaptcha-notice {
+  font-size: 9px;
+  margin-top: 8px;
+  color: #888;
+  line-height: 1.3;
+}
 
-    /* Specific styles for date inputs */
-    .book-now input[type="date"] {
-      min-height: 40px; /* Ensure consistent height */
-      position: relative;
-    }
+/* NEW: Specific styles for date inputs */
+.book-now input[type="date"] {
+  min-height: 40px; /* Ensure consistent height */
+}
 
-    /* Fix for iOS date input */
-    .book-now input[type="date"]::-webkit-date-and-time-value {
-      text-align: left;
-    }
-    
-    /* Fix for Safari */
-    @media not all and (min-resolution:.001dpcm) { 
-      @supports (-webkit-appearance: none) {
-        .book-now input[type="date"] {
-          padding-right: 10px; /* Add some padding to prevent text cutoff */
-        }
-      }
-    }
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .book-now {
+    max-width: 300px;
+    padding: 18px 12px;
+  }
+  .book-now h2 {
+    font-size: 18px;
+  }
+  .book-now p,
+  .email-link,
+  .recaptcha-notice {
+    font-size: 11px;
+  }
+  .book-now input,
+  .book-now button {
+    font-size: 13px;
+  }
+  .whatsapp-btn {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+  
+  /* NEW: Improved date input responsiveness */
+  .book-now input[type="date"] {
+    padding-left: 35px; /* Slightly reduce padding on mobile */
+    font-size: 12px; /* Smaller font for date inputs */
+  }
+  
+  .book-now .input-icon {
+    left: 10px; /* Adjust icon position */
+    font-size: 14px; /* Slightly smaller icons */
+  }
+  
+  .dates-container {
+    gap: 8px; /* Reduce gap between date inputs */
+  }
+}
 
-    /* Responsive Adjustments */
-    @media (max-width: 480px) {
-      .book-now {
-        max-width: 300px;
-        padding: 18px 12px;
-      }
-      .book-now h2 {
-        font-size: 18px;
-      }
-      .book-now p,
-      .email-link,
-      .recaptcha-notice {
-        font-size: 11px;
-      }
-      .book-now input,
-      .book-now button {
-        font-size: 13px;
-      }
-      .whatsapp-btn {
-        font-size: 12px;
-        padding: 7px 12px;
-      }
-      
-      /* Improved date input responsiveness */
-      .book-now input[type="date"] {
-        padding-left: 35px; /* Slightly reduce padding on mobile */
-        font-size: 12px; /* Smaller font for date inputs */
-      }
-      
-      .book-now .input-icon {
-        left: 10px; /* Adjust icon position */
-        font-size: 14px; /* Slightly smaller icons */
-      }
-      
-      .dates-container {
-        gap: 8px; /* Reduce gap between date inputs */
-      }
-      
-      /* Room section adjustments for mobile */
-      .room-section {
-        padding: 30px 10px;
-        margin: 15px auto;
-      }
-      
-      .carousel {
-        width: 90%;
-      }
-    }
+/* NEW: Additional adjustments for very small screens */
+@media (max-width: 360px) {
+  .book-now {
+    max-width: 280px;
+    padding: 15px 10px;
+  }
+  
+  .book-now input[type="date"] {
+    padding-left: 32px;
+    font-size: 11px;
+  }
+  
+  .book-now .input-icon {
+    left: 8px;
+    font-size: 13px;
+  }
+  
+  .book-now form {
+    max-width: 240px;
+  }
+}
 
-    /* Additional adjustments for very small screens */
-    @media (max-width: 360px) {
-      .book-now {
-        max-width: 280px;
-        padding: 15px 10px;
-      }
-      
-      .book-now input[type="date"] {
-        padding-left: 32px;
-        font-size: 11px;
-      }
-      
-      .book-now .input-icon {
-        left: 8px;
-        font-size: 13px;
-      }
-      
-      .book-now form {
-        max-width: 240px;
-      }
-    }
-
-    /* Fix for iOS Safari date input issues */
-    @supports (-webkit-touch-callout: none) {
-      .book-now input[type="date"] {
-        min-height: 44px; /* Better touch target on iOS */
-        line-height: 1.1; /* Improve text alignment */
-      }
-      
-      /* Prevent zoom on input focus in iOS */
-      @media screen and (max-width: 767px) {
-        input, select, textarea {
-          font-size: 16px; /* Prevent zoom on focus */
-        }
-      }
-    }
-    
-    /* Fallback for images if WebP isn't supported */
-    .no-webp .carousel img {
-      content: attr(data-fallback);
-    }
+/* NEW: Fix for iOS Safari date input issues */
+@supports (-webkit-touch-callout: none) {
+  .book-now input[type="date"] {
+    min-height: 44px; /* Better touch target on iOS */
+  }
+}
   </style>
 </head>
 <body>
@@ -427,10 +381,10 @@
     <p><strong data-translate="doubleRoomPrice">15 riyals</strong></p>
     <div class="carousel" data-carousel>
       <div class="carousel-track">
-        <img src="Images/DoubleRoomFirst.webp" alt="Double Room" data-fallback="Images/DoubleRoomFirst.jpg">
-        <img src="Images/DoubleRoomSecond.webp" alt="Double Room" data-fallback="Images/DoubleRoomSecond.jpg">
-        <img src="Images/DoubleRoomThird.webp" alt="Double Room" data-fallback="Images/DoubleRoomThird.jpg">
-        <img src="Images/DoubleRoomFourth.webp" alt="Double Room" data-fallback="Images/DoubleRoomFourth.jpg">
+        <img src="Images/DoubleRoomFirst.webp" alt="Double Room">
+        <img src="Images/DoubleRoomSecond.webp" alt="Double Room">
+        <img src="Images/DoubleRoomThird.webp" alt="Double Room">
+        <img src="Images/DoubleRoomFourth.webp" alt="Double Room">
       </div>
     </div>
     <div class="dots"></div>
@@ -442,9 +396,9 @@
     <p><strong data-translate="twinRoomPrice">15 riyals</strong></p>
     <div class="carousel" data-carousel>
       <div class="carousel-track">
-        <img src="Images/TwinRoomFirst.webp" alt="Twin Room" data-fallback="Images/TwinRoomFirst.jpg">
-        <img src="Images/TwinRoomSecond.webp" alt="Twin Room" data-fallback="Images/TwinRoomSecond.jpg">
-        <img src="Images/TwinRoomThird.webp" alt="Twin Room" data-fallback="Images/TwinRoomThird.jpg">
+        <img src="Images/TwinRoomFirst.webp" alt="Twin Room">
+        <img src="Images/TwinRoomSecond.webp" alt="Twin Room">
+        <img src="Images/TwinRoomThird.webp" alt="Twin Room">
       </div>
     </div>
     <div class="dots"></div>
@@ -456,10 +410,10 @@
     <p><strong data-translate="doubleApartmentPrice">20 riyals</strong></p>
     <div class="carousel" data-carousel>
       <div class="carousel-track">
-        <img src="Images/DoubleRoomApartmentFirst.webp" alt="Double-Bedroom Apartment" data-fallback="Images/DoubleRoomApartmentFirst.jpg">
-        <img src="Images/DoubleRoomApartmentSecond.webp" alt="Double-Bedroom Apartment" data-fallback="Images/DoubleRoomApartmentSecond.jpg">
-        <img src="Images/DoubleRoomApartmentThird.webp" alt="Double-Bedroom Apartment" data-fallback="Images/DoubleRoomApartmentThird.jpg">
-        <img src="Images/DoubleRoomApartmentFourth.webp" alt="Double-Bedroom Apartment" data-fallback="Images/DoubleRoomApartmentFourth.jpg">
+        <img src="Images/DoubleRoomApartmentFirst.webp" alt="Double-Bedroom Apartment">
+        <img src="Images/DoubleRoomApartmentSecond.webp" alt="Double-Bedroom Apartment">
+        <img src="Images/DoubleRoomApartmentThird.webp" alt="Double-Bedroom Apartment">
+        <img src="Images/DoubleRoomApartmentFourth.webp" alt="Double-Bedroom Apartment">
       </div>
     </div>
     <div class="dots"></div>
@@ -471,12 +425,12 @@
     <p><strong data-translate="twoBedroomPrice">20 riyals</strong></p>
     <div class="carousel" data-carousel>
       <div class="carousel-track">
-        <img src="Images/TwoBedroomApartmentFirst.webp" alt="Apartment" data-fallback="Images/TwoBedroomApartmentFirst.jpg">
-        <img src="Images/TwoBedroomApartmentSecond.webp" alt="Apartment" data-fallback="Images/TwoBedroomApartmentSecond.jpg">
-        <img src="Images/TwoBedroomApartmentThird.webp" alt="Apartment" data-fallback="Images/TwoBedroomApartmentThird.jpg">
-        <img src="Images/TwoBedroomApartmentFourth.webp" alt="Apartment" data-fallback="Images/TwoBedroomApartmentFourth.jpg">
-        <img src="Images/TwoBedroomApartmentFifth.webp" alt="Apartment" data-fallback="Images/TwoBedroomApartmentFifth.jpg">
-        <img src="Images/TwoBedroomApartmentSixth.webp" alt="Apartment" data-fallback="Images/TwoBedroomApartmentSixth.jpg">
+        <img src="Images/TwoBedroomApartmentFirst.webp" alt="Apartment">
+        <img src="Images/TwoBedroomApartmentSecond.webp" alt="Apartment">
+        <img src="Images/TwoBedroomApartmentThird.webp" alt="Apartment">
+        <img src="Images/TwoBedroomApartmentFourth.webp" alt="Apartment">
+        <img src="Images/TwoBedroomApartmentFifth.webp" alt="Apartment">
+        <img src="Images/TwoBedroomApartmentSixth.webp" alt="Apartment">
       </div>
     </div>
     <div class="dots"></div>
@@ -488,96 +442,65 @@
     <p><strong data-translate="suitePrice">35 riyals</strong></p>
     <div class="carousel" data-carousel>
       <div class="carousel-track">
-        <img src="Images/SuiteFirst.webp" alt="Suite" data-fallback="Images/SuiteFirst.jpg">
-        <img src="Images/SuiteSecond.webp" alt="Suite" data-fallback="Images/SuiteSecond.jpg">
-        <img src="Images/SuiteThird.webp" alt="Suite" data-fallback="Images/SuiteThird.jpg">
-        <img src="Images/SuiteFourth.webp" alt="Suite" data-fallback="Images/SuiteFourth.jpg">
-        <img src="Images/SuiteFifth.webp" alt="Suite" data-fallback="Images/SuiteFifth.jpg">
-        <img src="Images/SuiteSixth.webp" alt="Suite" data-fallback="Images/SuiteSixth.jpg">
-        <img src="Images/SuiteSeventh.webp" alt="Suite" data-fallback="Images/SuiteSeventh.jpg">
+        <img src="Images/SuiteFirst.webp" alt="Suite">
+        <img src="Images/SuiteSecond.webp" alt="Suite">
+        <img src="Images/SuiteThird.webp" alt="Suite">
+        <img src="Images/SuiteFourth.webp" alt="Suite">
+        <img src="Images/SuiteFifth.webp" alt="Suite">
+        <img src="Images/SuiteSixth.webp" alt="Suite">
+        <img src="Images/SuiteSeventh.webp" alt="Suite">
       </div>
     </div>
     <div class="dots"></div>
   </section>
-  
-  <section class="book-now" id="book-now">
-    <h2 data-translate="bookingTitle">BOOK NOW</h2>
-    <p data-translate="bookingText">Book your room now and enjoy a safe and comfortable stay.</p>
-    <form id="booking-form">
+<section class="book-now" id="book-now">
+  <h2 data-translate="bookingTitle">BOOK NOW</h2>
+  <p data-translate="bookingText">Book your room now and enjoy a safe and comfortable stay.</p>
+  <form id="booking-form">
+    <div class="form-group">
+      <span class="input-icon">👤</span>
+      <input type="text" data-translate="bookingName" placeholder="Name" required>
+    </div>
+    <div class="form-group">
+      <span class="input-icon">✉️</span>
+      <input type="email" data-translate="bookingEmail" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+      <span class="input-icon">📱</span>
+      <input type="tel" data-translate="bookingPhone" placeholder="Phone Number" required>
+    </div>
+    <div class="dates-container">
       <div class="form-group">
-        <span class="input-icon">👤</span>
-        <input type="text" data-translate="bookingName" placeholder="Name" required>
+        <span class="input-icon">📅</span>
+        <input type="date" required>
       </div>
       <div class="form-group">
-        <span class="input-icon">✉️</span>
-        <input type="email" data-translate="bookingEmail" placeholder="Email" required>
+        <span class="input-icon">📅</span>
+        <input type="date" required>
       </div>
-      <div class="form-group">
-        <span class="input-icon">📱</span>
-        <input type="tel" data-translate="bookingPhone" placeholder="Phone Number" required>
-      </div>
-      <div class="dates-container">
-        <div class="form-group">
-          <span class="input-icon">📅</span>
-          <input type="date" id="check-in" required>
-          <label for="check-in" class="input-label" data-translate="checkInLabel">Check-in</label>
-        </div>
-        <div class="form-group">
-          <span class="input-icon">📅</span>
-          <input type="date" id="check-out" required>
-          <label for="check-out" class="input-label" data-translate="checkOutLabel">Check-out</label>
-        </div>
-      </div>
-      <button type="submit" data-translate="bookingButton">BOOK NOW</button>
-    </form>
+    </div>
+    <button type="submit" data-translate="bookingButton">BOOK NOW</button>
+  </form>
 
-    <!-- Success container -->
-    <div id="success-container"></div>
+  <!-- Success container -->
+  <div id="success-container"></div>
 
-    <p class="recaptcha-notice" data-translate="bookingRecaptcha">
-      This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
-    </p>
-    <a href="https://wa.me/96897333972" class="whatsapp-btn" data-translate="bookingWhatsapp">💬 Message us on WhatsApp</a>
-    <p><a href="mailto:info@hha-om.com" class="email-link">info@hha-om.com</a></p>
-  </section>
-  
+  <p class="recaptcha-notice" data-translate="bookingRecaptcha">
+    This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+  </p>
+  <a href="https://wa.me/96897333972" class="whatsapp-btn" data-translate="bookingWhatsapp">💬 Message us on WhatsApp</a>
+  <p><a href="mailto:info@hha-om.com" class="email-link">info@hha-om.com</a></p>
+</section>
   <div id="footer"></div>
 
   <script src="language.js"></script>
-  <script>
-    // WebP support detection and fallback
-    function checkWebPSupport(callback) {
-      var webP = new Image();
-      webP.onload = webP.onerror = function() {
-        callback(webP.height === 2);
-      };
-      webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
-    }
-    
-    checkWebPSupport(function(isSupported) {
-      if (!isSupported) {
-        document.documentElement.classList.add('no-webp');
-        // Replace WebP images with fallback JPEGs
-        document.querySelectorAll('img[data-fallback]').forEach(function(img) {
-          img.src = img.getAttribute('data-fallback');
-        });
-      }
-    });
-
+ <script>
     // Carousel Script with RTL fix
     document.querySelectorAll("[data-carousel]").forEach(carousel => {
       const track = carousel.querySelector(".carousel-track");
       const images = track.querySelectorAll("img");
       const dotsContainer = carousel.nextElementSibling;
       let index = 0;
-
-      // Set the correct width for the track
-      track.style.width = `${images.length * 100}%`;
-      
-      // Set the correct width for each image
-      images.forEach(img => {
-        img.style.width = `${100 / images.length}%`;
-      });
 
       images.forEach((_, i) => {
         const dot = document.createElement("span");
@@ -595,9 +518,9 @@
       function updateCarousel() {
         const isRTL = document.documentElement.dir === "rtl";
         // Flip direction if RTL
-        const translateValue = isRTL ? index * 100 : -index * 100;
-        track.style.transform = `translateX(${translateValue}%)`;
-        track.style.webkitTransform = `translateX(${translateValue}%)`; // For iOS
+        track.style.transform = isRTL
+          ? `translateX(${index * 100}%)`
+          : `translateX(-${index * 100}%)`;
         dots.forEach(dot => dot.classList.remove("active"));
         dots[index].classList.add("active");
       }
@@ -607,15 +530,7 @@
         updateCarousel();
       }
 
-      let slideInterval = setInterval(autoSlide, 4000);
-      
-      // Pause autoplay when user interacts with carousel
-      carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
-      carousel.addEventListener('mouseleave', () => slideInterval = setInterval(autoSlide, 4000));
-      
-      // For touch devices
-      carousel.addEventListener('touchstart', () => clearInterval(slideInterval));
-      carousel.addEventListener('touchend', () => slideInterval = setInterval(autoSlide, 4000));
+      setInterval(autoSlide, 4000);
     });
 
     // Fade-in on scroll
@@ -639,11 +554,6 @@
     // Booking form validation + success
     const bookingForm = document.getElementById("booking-form");
     const successContainer = document.getElementById("success-container");
-
-    // Set minimum dates for date inputs
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById("check-in").setAttribute('min', today);
-    document.getElementById("check-out").setAttribute('min', today);
 
     bookingForm.addEventListener("submit", (e) => {
       e.preventDefault();
