@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Sites - Horizon Hotel Apartments</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Open Sans", Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #fff;
+      color: #222;
+      padding-top: 65px; /* same as header height */
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Page header */
+    .page-header {
+      background: #1668cc;
+      color: white;
+      text-align: center;
+      padding: 3rem 8%;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .page-header p {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Sites section */
+    .sites {
+      background: #f8f9fa;
+      color: #222;
+      padding: 3rem 8%;
+    }
+
+    .sites h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: #1668cc;
+      text-transform: uppercase;
+    }
+
+    .site-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .site-card {
+      background: #fff;
+      color: #222;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .site-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .site-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .site-card .content {
+      padding: 1.2rem;
+    }
+
+    .site-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      color: #1668cc;
+    }
+
+    .site-card p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    /* Discover section */
+    .discover {
+      position: relative;
+      text-align: center;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .discover img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      filter: brightness(65%);
+      display: block;
+    }
+
+    .discover-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .discover h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .discover button {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+
+    .discover button:hover {
+      background: #fff;
+      color: #1668cc;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; }
+      to { opacity:1; }
+    }
+
+    /* Responsive */
+    @media(max-width:900px) {
+      .site-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .discover h2 {
+        font-size: 1.4rem;
+      }
+      
+      .page-header h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header will load here -->
+  <div id="header"></div>
+
+  <!-- Page Header Section -->
+  <section class="page-header">
+    <h1 data-translate="topSitesTitle">TOP SITES NEAR OUR HOTEL</h1>
+    <p data-translate="topSitesSubtitle">Discover the amazing attractions and landmarks located near Horizon Hotel Apartments that make your stay in Oman truly memorable.</p>
+  </section>
+
+  <!-- Sites Section -->
+  <section class="sites">
+    <h2 data-translate="topSitesHeading">EXPLORE OMAN'S TREASURES</h2>
+    <div class="site-grid">
+
+      <div class="site-card">
+        <img src="./Images/MuscatInternationalAirport.webp" alt="Airport">
+        <div class="content">
+          <h3 data-translate="site1Title">MUSCAT INTERNATIONAL AIRPORT</h3>
+          <p data-translate="site1Text">Muscat International Airport is the Sultanate of Oman's primary gateway and one of the most modern airports in the region. It combines modern designs and integrated services to provide a comfortable and safe travel experience for passengers. The airport features a new terminal, which opened in 2018 and can accommodate up to 20 million passengers annually. It boasts state-of-the-art facilities, including luxurious lounges, a diverse duty-free market, international restaurants and cafés, a transit hotel, and integrated transportation services connecting the airport to Muscat and surrounding areas. It is also a major hub for Oman Air and SalamAir, receiving direct flights from various Gulf countries, Asia, and Europe, making it Oman's gateway to the world.</p>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <img src="./Images/OmanConvention.webp" alt="OCEC">
+        <div class="content">
+          <h3 data-translate="site2Title">THE OMAN CONVENTION AND EXHIBITION CENTRE</h3>
+          <p data-translate="site2Text">The Oman Convention and Exhibition Centre in Muscat is one of the region's leading destinations for hosting international events, exhibitions, and conferences. Featuring a modern architectural design and a strategic location near Muscat International Airport, it is an ideal attraction for visitors from within and outside the Sultanate. The centre features multi-purpose halls, a theatre that can accommodate thousands of attendees, exhibition halls equipped with the latest audio-visual technology, and spaces dedicated to meetings and trade shows. It is complimented by a group of surrounding hotels and entertainment facilities, offering a comprehensive experience that combines business, creativity, and authentic Omani hospitality.</p>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <img src="./Images/MuttrahSouq.webp" alt="Muttrah Souq">
+        <div class="content">
+          <h3 data-translate="site3Title">MUTTRAH SOUQ</h3>
+          <p data-translate="site3Text">Muttrah Souq in Muscat Governorate is one of the oldest and most famous traditional markets in the Sultanate of Oman and a prominent tourist destination that reflects the fragrance of history and the spirit of Omani authenticity. The market is characterized by its narrow alley lanes filled with small shops displaying a wide range of goods, such as incense and frankincense, silver and handicrafts, textiles, spices, and souvenirs. The market is a favorite stop for tourists and visitors seeking a shopping experience that combines authenticity and the oriental spirit, where the scent of perfumes and incense mingle with the warm atmosphere of Omani hospitality. Muttrah Souq remains a symbol of history and ancient trade in the heart of Muscat.</p>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <img src="./Images/SultanQaboos.webp" alt="Grand Mosque">
+        <div class="content">
+          <h3 data-translate="site4Title">THE SULTAN QABOOS GRAND MOSQUE</h3>
+          <p data-translate="site4Text">The Sultan Qaboos Grand Mosque in Muscat is one of the most important religious and architectural landmarks in the Sultanate of Oman, a symbol of luxury and artistic creativity. Opened in 2001 by order of the late Sultan Qaboos bin Said, it features an Islamic design blended with authentic Omani touches, including one of the largest chandeliers and carpets in the world. The mosque can accommodate tens of thousands of worshippers and includes a main prayer hall, a rich library, and an Islamic art gallery. Open to visitors of all nationalities, it serves as a center for spirituality, culture, and cultural exchange, as well as an architectural icon that adorns the heart of the capital, Muscat.</p>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <img src="./Images/RoyalOperaHouse.webp" alt="Opera House">
+        <div class="content">
+          <h3 data-translate="site5Title">THE ROYAL OPERA HOUSE MUSCAT</h3>
+          <p data-translate="site5Text">The Royal Opera House Muscat is a prominent architectural and cultural masterpiece in the Sultanate of Oman, a center for fine arts and world music. Opened in 2011 by order of the late Sultan Qaboos bin Said, it reflects the Sultanate's interest in arts, culture, and openness to civilizations. Featuring a unique design that combines traditional Omani architecture with modern touches, the building hosts sophisticated musical, operatic, and theatrical performances, featuring renowned international bands and artists. It also features exhibition spaces, fine dining, and modern facilities, making it a distinctive cultural and tourist destination that adds a touch of creativity and beauty to the heart of the capital, Muscat.</p>
+        </div>
+      </div>
+
+      <div class="site-card">
+        <img src="./Images/NationalMuseum.webp" alt="National Museum">
+        <div class="content">
+          <h3 data-translate="site6Title">THE NATIONAL MUSEUM</h3>
+          <p data-translate="site6Text">The National Museum in Muscat is the most prominent cultural edifice that tells the story of Oman throughout the ages. Opened in 2016, it serves as a platform for preserving and displaying Omani heritage in a modern, sophisticated style. The museum houses more than 5,000 rare artifacts and historical pieces, distributed among specialized halls such as the Maritime History Hall, the Weapons Hall, the Currency Hall, and the Traditional Arts Hall. A children's hall is also dedicated to simplifying history for younger generations. The museum features modern display technologies such as interactive screens and multimedia, providing visitors with an engaging learning experience that combines authenticity and technology. With its prime location near Al Alam Palace and the Government District, the National Museum has become an essential destination for anyone wishing to discover Oman's rich history and culture.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Discover Section -->
+  <section class="discover">
+    <img src="./Images/DiscoverOman.webp" alt="Oman landscape">
+    <div class="discover-text">
+      <h2 data-translate="discoverTitle">DISCOVER OMAN AND WONDERFUL PLACES</h2>
+      <button onclick="window.open('https://www.instagram.com/experienceoman/?hl=ar', '_blank')" data-translate="discoverButton">
+        LEARN MORE
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer will load here -->
+  <div id="footer"></div>
+
+  <!-- Language script -->
+  <script src="language.js"></script>
+
+  <!-- JS to fetch header/footer and initialize language -->
+  <script>
+    // Load header
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+        // Load footer
+        fetch("footer.html")
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById("footer").innerHTML = data;
+          });
+
+        // Reattach menu toggle functionality
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("nav-links");
+        if (toggle) {
+          toggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+          });
+        }
+      });
+  </script>
+
+</body>
+</html>
