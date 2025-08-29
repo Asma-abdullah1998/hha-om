@@ -207,6 +207,8 @@ html:dir(rtl) .offer-text h3::after {
       .then(res => res.text())
       .then(data => {
         document.getElementById("header").innerHTML = data;
+       setTimeout(initHeader, 0);
+
         // Load footer
         fetch("footer.html")
           .then(res => res.text())
@@ -227,3 +229,4 @@ html:dir(rtl) .offer-text h3::after {
 
 </body>
 </html>
+
