@@ -549,6 +549,8 @@
 
     // Load header & footer
     fetch("header.html").then(res => res.text()).then(data => document.getElementById("header").innerHTML = data);
+           setTimeout(initHeader, 0);
+
     fetch("footer.html").then(res => res.text()).then(data => document.getElementById("footer").innerHTML = data);
 
     // Booking form validation + success
@@ -593,3 +595,4 @@
   </script>
 </body>
 </html>
+
