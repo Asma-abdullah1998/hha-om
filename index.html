@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horizon Hotel Apartments</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="header.js"></script>
+
   <style>
     * { box-sizing:border-box; margin:0; padding:0; }
     body {
@@ -341,10 +343,13 @@
   <script src="language.js"></script>
   <script>
     // Load header
-    fetch("header.html")
+  fetch("header.html")
       .then(res => res.text())
       .then(data => {
         document.getElementById("header").innerHTML = data;
+        
+        // Reinitialize header functionality after loading
+        setTimeout(initHeader, 0);
         // Load footer
         fetch("footer.html")
           .then(res => res.text())
@@ -395,3 +400,4 @@
 
 </body>
 </html>
+
