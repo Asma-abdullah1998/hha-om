@@ -360,8 +360,11 @@ html[dir="rtl"] .actions {
       // Clear any success message
       document.getElementById('success-container').classList.remove('active');
     }
-  fetch("header.html").then(res => res.text()).then(data => document.getElementById("header").innerHTML = data);
-           setTimeout(initHeader, 0);
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+                setTimeout(initHeader, 0);
     function backToContact(){
       const contact = document.getElementById('contact-section');
       const booking = document.getElementById('booking-section');
@@ -406,11 +409,11 @@ html[dir="rtl"] .actions {
       });
     }
  
-        setTimeout(initHeader, 0);
     inject('footer','footer.html');
   </script>
 </body>
 </html>
+
 
 
 
