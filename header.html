@@ -23,6 +23,32 @@
       backdrop-filter: blur(8px); /* Frosted glass effect (works with transparency) */
     }
 
+    .header-container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover img {
+      transform: scale(1.05);
+    }
+
     nav {
       display: flex;
       justify-content: center;
@@ -110,6 +136,16 @@
 
     /* === MOBILE MENU === */
     @media (max-width: 768px) {
+      .header-container {
+        justify-content: center;
+      }
+      
+      .logo {
+        position: static;
+        transform: none;
+        margin-right: auto;
+      }
+      
       nav {
         display: none;
         flex-direction: column;
@@ -128,9 +164,10 @@
         display: flex;
       }
 
-  .menu-toggle {
-    display: flex; 
-  }
+      .menu-toggle {
+        display: flex; 
+      }
+      
       nav a {
         padding: 10px 0;
         text-align: center;
@@ -179,31 +216,43 @@
 </head>
 <body>
   <header>
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-      <button data-lang="en" class="active">EN</button>
-      <button data-lang="ar">AR</button>
-    </div>
+    <div class="header-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <img src="Images/Logo.webp" alt="Site Logo">
+      </a>
 
-    <!-- Hamburger Menu -->
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+      <!-- Navigation Links -->
+      <nav id="nav-links">
+        <a href="index.html" data-translate="navHome">Home</a>
+        <a href="rooms.html" data-translate="navRooms">Room</a>
+        <a href="Media Center.html" data-translate="navMedia">Media Center</a>
+        <!-- Add this new item -->
+        <a href="top-sites.html" data-translate="navTopSites">Top Sites</a>
+        <a href="offers.html" data-translate="navOffers">Offers</a>
+        <a href="contact.html" data-translate="navContact">Contact Us</a>
+      </nav>
 
-    <!-- Navigation Links -->
-<nav id="nav-links">
-  <a href="index.html" data-translate="navHome">Home</a>
-  <a href="rooms.html" data-translate="navRooms">Room</a>
-  <a href="Media Center.html" data-translate="navMedia">Media Center</a>
-  <!-- Add this new item -->
-  <a href="top-sites.html" data-translate="navTopSites">Top Sites</a>
-  <a href="offers.html" data-translate="navOffers">Offers</a>
-  <a href="contact.html" data-translate="navContact">Contact Us</a>
-</nav>
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="ar">AR</button>
+      </div>
+
+      <!-- Hamburger Menu -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </header>
-  <script src="header.js"></script>
+  
+  <!-- Rest of your page content would go here -->
+  <div style="height: 1000px; padding-top: 80px; text-align: center;">
+    <h1>Page Content</h1>
+    <p>Scroll down to see the fixed header in action</p>
+  </div>
 
   <script>
     // Toggle mobile menu
@@ -235,7 +284,4 @@
     });
   </script>
 </body>
-
 </html>
-
-
