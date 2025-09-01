@@ -100,7 +100,14 @@
     "topSitesHeading": "EXPLORE OMAN'S TREASURES",
     "premiumCtaTitle": "READY TO EXPLORE OMAN?",
     "premiumCtaText": "Book your stay at Horizon Hotel Apartments and experience the best of Oman's attractions with our special hospitality and convenient location.",
-    "premiumCtaButton": "RESERVE YOUR STAY"
+    "premiumCtaButton": "RESERVE YOUR STAY",
+  "servicesTitle": "SERVICES & AMENITIES",
+  "serviceBabyBed": "Free baby cots available",
+  "serviceExtraBed": "Extra beds can be provided",
+  "serviceParking": "Free parking available",
+  "service24Booking": "24-hour booking system (check-in = check-out time next day)",
+  "serviceReception": "24-hour reception service"
+
   },
   "ar": {
     "navHome": "الرئيسية",
@@ -203,6 +210,15 @@
     "topSitesHeading": "استكشف كنوز عمان",
     "premiumCtaTitle": "مستعد لاكتشاف عمان؟",
     "premiumCtaText": "احجز إقامتك في شقق فندق هورايزون واستمتع بأفضل معالم عمان مع ضيافتنا المميزة وموقعنا الملائم.",
-    "premiumCtaButton": "احجز إقامتك"
+    "premiumCtaButton": "احجز إقامتك",
+    
+  "servicesTitle": "الخدمات والمرافق",
+  "serviceBabyBed": "توفير أسرة رُضع مجاناً",
+  "serviceExtraBed": "إمكانية توفير أسرة إضافية",
+  "serviceParking": "مواقف مجانية",
+  "service24Booking": "الحجز بنظام ٢٤ ساعة (وقت الدخول هو وقت الخروج في اليوم التالي)",
+  "serviceReception": "خدمة الاستقبال ٢٤ ساعة"
+
+
   }
 }
