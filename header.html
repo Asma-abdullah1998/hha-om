@@ -23,10 +23,23 @@
       backdrop-filter: blur(8px);
     }
 
-    /* === LOGO === */
+    /* === LOGO (circle with border & shadow) === */
+    .logo {
+      width: 55px;
+      height: 55px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 2px solid #1976d2; /* blue border */
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* subtle shadow */
+    }
+
     .logo img {
-      height: 40px;
-      width: auto;
+      width: 70%;
+      height: auto;
       display: block;
     }
 
@@ -182,7 +195,7 @@
     <!-- Logo -->
     <div class="logo">
       <a href="index.html">
-        <img src="Images/Logo.png" alt="Logo">
+        <img src="logo.png" alt="Logo">
       </a>
     </div>
 
@@ -243,4 +256,3 @@
   </script>
 </body>
 </html>
-
