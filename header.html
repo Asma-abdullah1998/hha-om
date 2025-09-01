@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,26 +12,35 @@
       left: 0;
       right: 0;
       background: #1565c0; /* Deep blue background */
-      color: white; /* White text */
+      color: white;
       height: 65px;
       padding: 0 20px;
       z-index: 1000;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: space-between;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(8px); /* Frosted glass effect (works with transparency) */
+      backdrop-filter: blur(8px);
     }
 
+    /* === LOGO === */
+    .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    /* Center nav links */
     nav {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 25px;
+      flex: 1;
     }
 
     nav a {
-      color: white; /* White text */
+      color: white;
       text-decoration: none;
       font-size: 14px;
       font-weight: 600;
@@ -39,16 +48,15 @@
     }
 
     nav a:hover {
-      color: #e3f2fd; /* Light blue-white on hover */
+      color: #e3f2fd;
       transform: translateY(-1px);
     }
 
-    /* === LANGUAGE SWITCHER (White/Glass on Blue) === */
+    /* === LANGUAGE SWITCHER === */
     .language-switcher {
-      position: absolute;
-      right: 70px;
       display: flex;
       gap: 10px;
+      align-items: center;
     }
 
     .language-switcher button {
@@ -75,22 +83,18 @@
       box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
     }
 
-    /* === HAMBURGER MENU (White bars) === */
+    /* === HAMBURGER MENU === */
     .menu-toggle {
       display: none;
       flex-direction: column;
       cursor: pointer;
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
       z-index: 1100;
     }
 
     .menu-toggle span {
       width: 25px;
       height: 3px;
-      background: white; /* White hamburger lines */
+      background: white;
       margin: 4px 0;
       transition: 0.3s;
       border-radius: 2px;
@@ -116,7 +120,8 @@
         position: absolute;
         top: 65px;
         right: 20px;
-        background: #1565c0; /* Blue background */
+        left: 20px;
+        background: #1565c0;
         padding: 12px 16px;
         border-radius: 14px;
         min-width: 130px;
@@ -128,14 +133,15 @@
         display: flex;
       }
 
-  .menu-toggle {
-    display: flex; 
-  }
+      .menu-toggle {
+        display: flex;
+      }
+
       nav a {
         padding: 10px 0;
         text-align: center;
         font-size: 14px;
-        color: white; /* White links */
+        color: white;
         transition: color 0.3s;
       }
 
@@ -145,23 +151,8 @@
       }
 
       .language-switcher {
-        position: static;
-        justify-content: center;
         margin-top: 12px;
-      }
-
-      .language-switcher button {
-        padding: 6px 12px;
-        font-size: 12px;
-        background: rgba(255, 255, 255, 0.2);
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.4);
-      }
-
-      .language-switcher button:hover,
-      .language-switcher button.active {
-        background: linear-gradient(135deg, #2196f3, #1976d2);
-        color: white;
+        justify-content: center;
       }
     }
 
@@ -175,47 +166,63 @@
         transform: translateY(0);
       }
     }
+
+    /* === RTL SUPPORT === */
+    [dir="rtl"] header {
+      flex-direction: row-reverse;
+    }
+
+    [dir="rtl"] .language-switcher {
+      flex-direction: row-reverse;
+    }
   </style>
 </head>
 <body>
   <header>
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-      <button data-lang="en" class="active">EN</button>
-      <button data-lang="ar">AR</button>
-    </div>
-
-    <!-- Hamburger Menu -->
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+        <img src="logo.png" alt="Logo">
+      </a>
     </div>
 
     <!-- Navigation Links -->
-<nav id="nav-links">
-  <a href="index.html" data-translate="navHome">Home</a>
-  <a href="rooms.html" data-translate="navRooms">Room</a>
-  <a href="Media Center.html" data-translate="navMedia">Media Center</a>
-  <!-- Add this new item -->
-  <a href="top-sites.html" data-translate="navTopSites">Top Sites</a>
-  <a href="offers.html" data-translate="navOffers">Offers</a>
-  <a href="contact.html" data-translate="navContact">Contact Us</a>
-</nav>
+    <nav id="nav-links">
+      <a href="index.html" data-translate="navHome">Home</a>
+      <a href="rooms.html" data-translate="navRooms">Room</a>
+      <a href="Media Center.html" data-translate="navMedia">Media Center</a>
+      <a href="top-sites.html" data-translate="navTopSites">Top Sites</a>
+      <a href="offers.html" data-translate="navOffers">Offers</a>
+      <a href="contact.html" data-translate="navContact">Contact Us</a>
+    </nav>
+
+    <!-- Right side: language + hamburger -->
+    <div style="display:flex; align-items:center; gap:15px;">
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="ar">AR</button>
+      </div>
+
+      <!-- Hamburger Menu -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </header>
-  <script src="header.js"></script>
 
   <script>
-    // Toggle mobile menu
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
-    
+
     menuToggle.addEventListener('click', function() {
       navLinks.classList.toggle('active');
       menuToggle.classList.toggle('active');
     });
-    
-    // Close menu when clicking a link
+
+    // Close menu on link click
     const navItems = document.querySelectorAll('nav a');
     navItems.forEach(item => {
       item.addEventListener('click', () => {
@@ -223,17 +230,16 @@
         menuToggle.classList.remove('active');
       });
     });
-    
-    // Language switcher functionality
+
+    // Language switcher
     const langButtons = document.querySelectorAll('.language-switcher button');
     langButtons.forEach(button => {
       button.addEventListener('click', () => {
         langButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
-        console.log('Switching to language: ' + button.dataset.lang);
+        document.documentElement.setAttribute("dir", button.dataset.lang === "ar" ? "rtl" : "ltr");
       });
     });
   </script>
 </body>
-
 </html>
