@@ -3,56 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multilingual Header with Logo</title>
+  <title>Premium Blue Header</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    body {
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      min-height: 100vh;
-      padding: 80px 20px 40px;
-      color: #333;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-    
-    .content {
-      padding: 30px;
-    }
-    
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #1565c0;
-      font-size: 2.5rem;
-    }
-    
-    p {
-      line-height: 1.6;
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-    }
-    
-    .demo-note {
-      background: #e3f2fd;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 30px 0;
-      border-left: 4px solid #2196f3;
-    }
-    
     /* === HEADER STYLES === */
     header {
       position: fixed;
@@ -60,114 +12,45 @@
       left: 0;
       right: 0;
       background: #1565c0; /* Deep blue background */
-      color: white;
-      height: 70px;
+      color: white; /* White text */
+      height: 65px;
       padding: 0 20px;
       z-index: 1000;
       display: flex;
+      justify-content: center;
       align-items: center;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
+      backdrop-filter: blur(8px); /* Frosted glass effect (works with transparency) */
     }
-    
-    .header-content {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-    }
-    
-    /* Logo styling */
-    .logo {
-      height: 45px;
-      display: flex;
-      align-items: center;
-      transition: transform 0.3s ease;
-    }
-    
-    .logo:hover {
-      transform: scale(1.05);
-    }
-    
-    .logo img {
-      height: 100%;
-      width: auto;
-    }
-    
-    /* LTR specific styles */
-    [dir="ltr"] .logo {
-      order: 1;
-      margin-right: auto;
-    }
-    
-    [dir="ltr"] nav {
-      order: 2;
-    }
-    
-    [dir="ltr"] .language-switcher {
-      order: 3;
-      margin-left: 25px;
-    }
-    
-    [dir="ltr"] .menu-toggle {
-      order: 4;
-      margin-left: 15px;
-    }
-    
-    /* RTL specific styles */
-    [dir="rtl"] .logo {
-      order: 4;
-      margin-left: auto;
-    }
-    
-    [dir="rtl"] nav {
-      order: 3;
-    }
-    
-    [dir="rtl"] .language-switcher {
-      order: 2;
-      margin-right: 25px;
-    }
-    
-    [dir="rtl"] .menu-toggle {
-      order: 1;
-      margin-right: 15px;
-    }
-    
-    /* Navigation styling */
+
     nav {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 25px;
     }
-    
+
     nav a {
-      color: white;
+      color: white; /* White text */
       text-decoration: none;
       font-size: 14px;
       font-weight: 600;
       transition: all 0.3s ease;
-      padding: 8px 12px;
-      border-radius: 4px;
     }
-    
+
     nav a:hover {
-      color: #e3f2fd;
-      background: rgba(255, 255, 255, 0.1);
+      color: #e3f2fd; /* Light blue-white on hover */
       transform: translateY(-1px);
     }
-    
-    /* Language switcher */
+
+    /* === LANGUAGE SWITCHER (White/Glass on Blue) === */
     .language-switcher {
+      position: absolute;
+      right: 70px;
       display: flex;
       gap: 10px;
     }
-    
+
     .language-switcher button {
       background: rgba(255, 255, 255, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.4);
@@ -182,7 +65,7 @@
       transition: all 0.35s ease;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-    
+
     .language-switcher button:hover,
     .language-switcher button.active {
       background: linear-gradient(135deg, #2196f3, #1976d2);
@@ -191,85 +74,82 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
     }
-    
-    /* Hamburger menu */
+
+    /* === HAMBURGER MENU (White bars) === */
     .menu-toggle {
       display: none;
       flex-direction: column;
       cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
       z-index: 1100;
     }
-    
+
     .menu-toggle span {
       width: 25px;
       height: 3px;
-      background: white;
+      background: white; /* White hamburger lines */
       margin: 4px 0;
       transition: 0.3s;
       border-radius: 2px;
     }
-    
+
     .menu-toggle.active span:nth-child(1) {
       transform: rotate(-45deg) translate(-5px, 6px);
     }
-    
+
     .menu-toggle.active span:nth-child(2) {
       opacity: 0;
     }
-    
+
     .menu-toggle.active span:nth-child(3) {
       transform: rotate(45deg) translate(-5px, -6px);
     }
-    
-    /* Mobile menu */
-    @media (max-width: 900px) {
-      .header-content {
-        flex-wrap: wrap;
-      }
-      
-      [dir="ltr"] nav,
-      [dir="rtl"] nav {
-        order: 5;
-        width: 100%;
+
+    /* === MOBILE MENU === */
+    @media (max-width: 768px) {
+      nav {
         display: none;
         flex-direction: column;
-        background: #1565c0;
+        position: absolute;
+        top: 65px;
+        right: 20px;
+        background: #1565c0; /* Blue background */
         padding: 12px 16px;
         border-radius: 14px;
-        margin-top: 15px;
+        min-width: 130px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         animation: slideDown 0.35s ease forwards;
       }
-      
+
       nav.active {
         display: flex;
       }
-      
-      .menu-toggle {
-        display: flex; 
-      }
-      
+
+  .menu-toggle {
+    display: flex; 
+  }
       nav a {
         padding: 10px 0;
         text-align: center;
         font-size: 14px;
-        color: white;
+        color: white; /* White links */
         transition: color 0.3s;
       }
-      
+
       nav a:hover {
         color: #e3f2fd;
         text-decoration: underline;
-        background: transparent;
-        transform: none;
       }
-      
+
       .language-switcher {
         position: static;
         justify-content: center;
         margin-top: 12px;
       }
-      
+
       .language-switcher button {
         padding: 6px 12px;
         font-size: 12px;
@@ -277,14 +157,14 @@
         color: white;
         border: 1px solid rgba(255, 255, 255, 0.4);
       }
-      
+
       .language-switcher button:hover,
       .language-switcher button.active {
         background: linear-gradient(135deg, #2196f3, #1976d2);
         color: white;
       }
     }
-    
+
     @keyframes slideDown {
       from {
         opacity: 0;
@@ -295,144 +175,35 @@
         transform: translateY(0);
       }
     }
-    
-    /* Demo content styling */
-    .direction-demo {
-      display: flex;
-      gap: 20px;
-      margin: 40px 0;
-      flex-wrap: wrap;
-    }
-    
-    .direction-box {
-      flex: 1;
-      min-width: 300px;
-      background: white;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    .direction-box h3 {
-      margin-bottom: 15px;
-      color: #1565c0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .direction-box h3::before {
-      content: "•";
-      font-size: 24px;
-      color: #2196f3;
-    }
-    
-    .code-example {
-      background: #2d2d2d;
-      color: #f8f8f2;
-      padding: 15px;
-      border-radius: 6px;
-      font-family: 'Courier New', monospace;
-      overflow-x: auto;
-      margin: 20px 0;
-      line-height: 1.5;
-    }
-    
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      color: #666;
-      font-size: 0.9rem;
-    }
   </style>
 </head>
-<body dir="ltr">
+<body>
   <header>
-    <div class="header-content">
-      <!-- Logo -->
-      <a href="index.html" class="logo">
-        <!-- Using a placeholder logo since we don't have the actual image -->
-        <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="45" height="45" rx="8" fill="#2196F3"/>
-          <path d="M22.5 12L28.5 18H24V26H28.5L22.5 32L16.5 26H21V18H16.5L22.5 12Z" fill="white"/>
-          <circle cx="22.5" cy="22.5" r="4.5" fill="#FFC107"/>
-        </svg>
-      </a>
-
-      <!-- Navigation Links -->
-      <nav id="nav-links">
-        <a href="index.html" data-translate="navHome">Home</a>
-        <a href="rooms.html" data-translate="navRooms">Rooms</a>
-        <a href="media-center.html" data-translate="navMedia">Media Center</a>
-        <a href="top-sites.html" data-translate="navTopSites">Top Sites</a>
-        <a href="offers.html" data-translate="navOffers">Offers</a>
-        <a href="contact.html" data-translate="navContact">Contact Us</a>
-      </nav>
-
-      <!-- Language Switcher -->
-      <div class="language-switcher">
-        <button data-lang="en" data-dir="ltr" class="active">EN</button>
-        <button data-lang="ar" data-dir="rtl">AR</button>
-      </div>
-
-      <!-- Hamburger Menu -->
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="ar">AR</button>
     </div>
+
+    <!-- Hamburger Menu -->
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Navigation Links -->
+<nav id="nav-links">
+  <a href="index.html" data-translate="navHome">Home</a>
+  <a href="rooms.html" data-translate="navRooms">Room</a>
+  <a href="Media Center.html" data-translate="navMedia">Media Center</a>
+  <!-- Add this new item -->
+  <a href="top-sites.html" data-translate="navTopSites">Top Sites</a>
+  <a href="offers.html" data-translate="navOffers">Offers</a>
+  <a href="contact.html" data-translate="navContact">Contact Us</a>
+</nav>
   </header>
-
-  <div class="container">
-    <div class="content">
-      <h1>Multilingual Header with RTL/LTR Support</h1>
-      
-      <p>This responsive header features a logo that changes position based on the text direction (LTR for English, RTL for Arabic). The layout automatically adjusts when you switch between languages.</p>
-      
-      <div class="demo-note">
-        <p><strong>Demo Instructions:</strong> Click the language buttons (EN/AR) in the header to see the layout change between LTR and RTL modes. The logo will move to the opposite side when switching to RTL.</p>
-      </div>
-      
-      <div class="direction-demo">
-        <div class="direction-box">
-          <h3>Left-to-Right (LTR)</h3>
-          <p>Used for languages like English, Spanish, French, etc.</p>
-          <p>In LTR mode, the logo appears on the left side, navigation in the center, and language switcher on the right.</p>
-        </div>
-        
-        <div class="direction-box">
-          <h3>Right-to-Left (RTL)</h3>
-          <p>Used for languages like Arabic, Hebrew, Persian, etc.</p>
-          <p>In RTL mode, the logo moves to the right side, navigation remains centered, and language switcher moves to the left.</p>
-        </div>
-      </div>
-      
-      <h2>How It Works</h2>
-      <p>The header uses CSS attribute selectors to change the layout based on the <code>dir</code> attribute of the HTML document:</p>
-      
-      <div class="code-example">
-        /* LTR specific styles */<br>
-        [dir="ltr"] .logo {<br>
-        &nbsp;&nbsp;order: 1;<br>
-        &nbsp;&nbsp;margin-right: auto;<br>
-        }<br><br>
-        
-        /* RTL specific styles */<br>
-        [dir="rtl"] .logo {<br>
-        &nbsp;&nbsp;order: 4;<br>
-        &nbsp;&nbsp;margin-left: auto;<br>
-        }
-      </div>
-      
-      <p>When you click the language buttons, JavaScript changes the <code>dir</code> attribute of the HTML document, and the CSS automatically adjusts the layout.</p>
-    </div>
-  </div>
-  
-  <footer>
-    <p>Premium Multilingual Header Design | &copy; 2023 Example Company</p>
-  </footer>
+  <script src="header.js"></script>
 
   <script>
     // Toggle mobile menu
@@ -455,32 +226,14 @@
     
     // Language switcher functionality
     const langButtons = document.querySelectorAll('.language-switcher button');
-    const html = document.documentElement;
-    
     langButtons.forEach(button => {
       button.addEventListener('click', () => {
-        // Remove active class from all buttons
         langButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Add active class to clicked button
         button.classList.add('active');
-        
-        // Change document direction
-        const dir = button.getAttribute('data-dir');
-        html.setAttribute('dir', dir);
-        
-        // Change language attribute
-        const lang = button.getAttribute('data-lang');
-        html.setAttribute('lang', lang);
-        
-        // For demo purposes, show a message
-        if (dir === 'rtl') {
-          alert('Switched to Arabic (RTL) mode. Notice how the logo moved to the right side.');
-        } else {
-          alert('Switched to English (LTR) mode. Notice how the logo moved to the left side.');
-        }
+        console.log('Switching to language: ' + button.dataset.lang);
       });
     });
   </script>
 </body>
+
 </html>
