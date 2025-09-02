@@ -592,11 +592,13 @@
       setTimeout(initHeader, 0);
     });
 
- fetch("footer.html")
+  // Load footer
+  fetch("footer.html")
     .then(res => res.text())
     .then(data => {
       document.getElementById("footer").innerHTML = data;
     });
+
 
     // Booking form validation + success
     const bookingForm = document.getElementById("booking-form");
@@ -640,6 +642,7 @@
   </script>
 </body>
 </html>
+
 
 
 
